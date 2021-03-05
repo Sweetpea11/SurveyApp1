@@ -5,6 +5,7 @@ print("This survey is for people with a female reproductive system between the a
 print("This survey is for United States residents only.")
 print("Your answers will be anonymous and there are no wrong answers.\nThank you so much!")
 
+# This ensures that any inputs that should be numbers is checked
 def inputNumber(message):
     while True:
         try:
@@ -15,11 +16,13 @@ def inputNumber(message):
         else:
             return userInput
 
-print("Question 1")
+# This records the client's name
+        print("Question 1")
 name = input("What is your first name?\nPlease enter your name: ")
 name = name.title()
 print("Welcome", name)
 
+# This tests that the client's age is between and including 18 and 45.
 print("Question 2")
 while True:
     age = inputNumber("Please enter your age: [Age must be between 18 and 45]\nPlease enter your age: ")
@@ -29,7 +32,8 @@ while True:
     else:
         print("Invalid entry! Please try again.")
 
-print("Question 3")
+# This block tests for US citizenship
+        print("Question 3")
 us_Resident = input("Are you a resident of the United States?\n[Please enter Yes or No]: ")
 if us_Resident in ["Yes", "YES", "y", "Y", "yes"]:
     print("Great! You are a United States resident and qualified to take this survey.")
@@ -47,6 +51,7 @@ elif us_Resident in ["No", "NO", "n", "N", "no"]:
 else:
     print("Sorry! Invalid entry! Please try again")
 
+# probes for birth control usage
 print("Question 4")
 birth_control = input("Have you every used birth control?\nPlease enter yes or no: ")
 if birth_control in ["Yes", "YES", "y", "Y", "yes"]:
@@ -62,6 +67,7 @@ elif birth_control in ["No", "NO", "n", "N", "no"]:
 else:
     print("Sorry! Invalid entry! Please try again")
 
+# probes for age started on birht control
 print("Question 5")
 age_started = inputNumber("At what age did you start or consider taking birth control?: [Age must be greater than 13 and less 45]\nPlease enter an age: ")
 if age_started >= 13 and age_started <= 45:
@@ -69,6 +75,7 @@ if age_started >= 13 and age_started <= 45:
 else:
     print("Invalid entry! Please try again.")
 
+# probes for reason starting birth control
 print("Question 6")
 reason_started = input("What was the reason you started birth control?\nPlease select from the following:\n[1 for menstrual cramps, 2 for irregular periods, or 3 for did not want to have period every month.")
 if reason_started == 1:
@@ -80,6 +87,7 @@ elif reason_started == 3:
 else:
     print("Sorry! Invalid entry! Please try again")
 
+# probes for level of reproductive health
 print("Question 7")
 birth_control_ed = input("Do you think you learned enough about birth control and reproductive health when growing up?:\nPlease enter yes or no.")
 if birth_control_ed in ["Yes", "YES", "y", "Y", "yes"]:
