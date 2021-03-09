@@ -57,13 +57,15 @@ birth_control = input("Have you every used birth control?\nPlease enter yes or n
 if birth_control in ["Yes", "YES", "y", "Y", "yes"]:
     print("You indicated that you HAVE used birth control.")
 elif birth_control in ["No", "NO", "n", "N", "no"]:
-        considered_birth_control = input("Have you ever considered taking birth control?: ")
-        if considered_birth_control in ["Yes", "YES", "y", "Y", "yes"]:
-            print("You indicated that you HAVE considered taking birth control.")
-        elif considered_birth_control in ["No", "NO", "n", "N", "no"]:
-            sys.exit("Sorry! This survey is only for women who have taken or considered taking birth control.")
-        else:
-            print("Sorry! Invalid entry! Please try again")
+    print("You indicated that you HAVE NOT used birth control.")
+else:
+    print("Sorry! Invalid entry! Please try again")
+
+considered_birth_control = input("Have you ever considered taking birth control?: ")
+if considered_birth_control in ["Yes", "YES", "y", "Y", "yes"]:
+    print("You indicated that you HAVE considered taking birth control.")
+elif considered_birth_control in ["No", "NO", "n", "N", "no"]:
+    sys.exit("Sorry! This survey is only for women who have taken or considered taking birth control.
 else:
     print("Sorry! Invalid entry! Please try again")
 
