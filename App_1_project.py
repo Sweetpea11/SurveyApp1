@@ -22,6 +22,7 @@ name = input("What is your first name?\nPlease enter your name: ")
 name = name.title()
 print("Welcome", name)
 
+# This block restricts users to females
 print("Question 2")
 gender = input("Please select your gender:\n[Please enter Male, Female or Other]: ")
 if gender in ["M", "m", "MALE", "Male", "male"]:
@@ -60,16 +61,19 @@ birth_control = input("Have you every used birth control?\nPlease enter yes or n
 if birth_control in ["Yes", "YES", "y", "Y", "yes"]:
     print("You indicated that you HAVE used birth control.")
 elif birth_control in ["No", "NO", "n", "N", "no"]:
+    birth_control = 0
     print("You indicated that you HAVE NOT used birth control.")
 else:
     print("Sorry! Invalid entry! Please try again")
 
+# probes if the user ever considered birth control
 print("Question 6")
-considered_birth_control = input("Have you ever considered taking birth control?: ")
-if considered_birth_control in ["Yes", "YES", "y", "Y", "yes"]:
-    print("You indicated that you HAVE considered taking birth control.")
-elif considered_birth_control in ["No", "NO", "n", "N", "no"]:
-    sys.exit("Sorry! This survey is only for women who have taken or considered taking birth control.
+if birth_control == 0:
+    considered_birth_control = input("Have you ever considered taking birth control?: ")
+    if considered_birth_control in ["Yes", "YES", "y", "Y", "yes"]:
+        print("You indicated that you HAVE considered taking birth control.")
+    elif considered_birth_control in ["No", "NO", "n", "N", "no"]:
+        sys.exit("Sorry! This survey is only for women who have taken or considered taking birth control.")
 else:
     print("Sorry! Invalid entry! Please try again")
 
@@ -103,6 +107,7 @@ elif birth_control_ed in ["No", "NO", "n", "N", "no"]:
 else:
     print("Sorry! Invalid entry! Please try again")
 
+# probes if users can easily toak to their doctors about birth control
 print("Question 10")
 doc_talk = input("Do you think you can easily talk to your doctor about birth control?\nPlease enter yes or no.")
 if doc_talk in ["Yes", "YES", "y", "Y", "yes"]:
@@ -112,6 +117,7 @@ elif doc_talk in ["No", "NO", "n", "N", "no"]:
 else:
     print("Sorry! Invalid entry! Please try again")
 
+# probes for hormonal contraception usage for better employment
 print("Question 11")
 contraception = input("Have you ever used hormonal contraception for better employability at work?\nPlease enter yes or no.")
 if contraception in ["Yes", "YES", "y", "Y", "yes"]:
