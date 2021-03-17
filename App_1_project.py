@@ -77,7 +77,7 @@ if birth_control == 0:
 else:
     print("Sorry! Invalid entry! Please try again")
 
-# probes for age started on birht control
+# probes for age started on birth control
 print("Question 7")
 age_started = inputNumber("At what age did you start or consider taking birth control?: [Age must be greater than 13 and less 45]\nPlease enter an age: ")
 if age_started >= 13 and age_started <= 45:
@@ -107,7 +107,7 @@ elif birth_control_ed in ["No", "NO", "n", "N", "no"]:
 else:
     print("Sorry! Invalid entry! Please try again")
 
-# probes if users can easily toak to their doctors about birth control
+# probes if users can easily talk to their doctors about birth control
 print("Question 10")
 doc_talk = input("Do you think you can easily talk to your doctor about birth control?\nPlease enter yes or no.")
 if doc_talk in ["Yes", "YES", "y", "Y", "yes"]:
