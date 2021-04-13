@@ -1,5 +1,8 @@
 import sys
 
+YES_OPTIONS = ["Yes", "YES", "y", "Y", "yes", "sure"]
+NO_OPTIONS = ["No", "NO", "n", "N", "no"]
+
 print("Hi there! Thank you so much for taking this short time to help Matrix Lotus with its research.")
 print("This survey is for people with a female reproductive system between the ages of 18 and 45.")
 print("This survey is for United States residents only.")
@@ -24,26 +27,30 @@ print("Welcome", name)
 
 # This block restricts users to females
 print("Question 2")
+permittedGendersDictionary = {
+    "Deny": ["M", "m", "MALE", "Male", "male"],
+    "Allow": ["F", "f", "FEMALE", "Female", "female"]
+}
 gender = input("Please select your gender:\n[Please enter Male, Female or Other]: ")
-if gender in ["M", "m", "MALE", "Male", "male"]:
+if gender in permittedGendersDictionary["Deny"]:
+    sys.exit(f"Sorry, this survey is not for people of the {gender} gender. Check back soon for {gender}-centered surveys. Thank you for your interest.")
     gender = 'm'
-    sys.exit("Sorry, this survey is for females only. Check back soon for male-centered surveys. Thank you for your interest.")
-elif gender in ["F", "f", "FEMALE", "Female", "female"]:
-    gender = 'f'
-    print("You entered Female")
+elif gender in permittedGendersDictionary["Allow"]:
+    print(f"You entered {gender} and passed the test")
+    gender = 'f' 
     break
 else:
-    print("Invalid entry! Please try again.")
+    print(f"Invalid entry! Please try again. {gender} is not a valid gender")
 
 # This tests that the client's age is between and including 18 and 45.
 print("Question 3")
 while True:
     age = inputNumber("Please enter your age: [Age must be between 18 and 45]\nPlease enter your age: ")
-    if age >= 18 and age <= 45:
+    if 18 <= age <= 45:
         print(f"Great! Your age is {age}, which is within the correct range.")
         break
     else:
-        print("Invalid entry! Please try again.")
+        print("Wrong age! Please try again.")
 
 # This block tests for US citizenship
 print("Question 4")
@@ -100,19 +107,19 @@ else:
 # probes for level of reproductive health
 print("Question 9")
 birth_control_ed = input("Do you think you learned enough about birth control and reproductive health when growing up?:\nPlease enter yes or no.")
-if birth_control_ed in ["Yes", "YES", "y", "Y", "yes"]:
+if birth_control_ed in YES_OPTIONS:
     print("You indicated you HAVE learned enough about birth control and reproductive health when growing up.")
-elif birth_control_ed in ["No", "NO", "n", "N", "no"]:
+elif birth_control_ed in NO_OPTIONS:
     print("You indicated you HAVE NOT learned enough about birth control and reproductive health when growing up.")
 else:
-    print("Sorry! Invalid entry! Please try again")
+    print(f"Sorry! {birth_control_ed} is not a valid answer! Please try again")
 
 # probes if users can easily talk to their doctors about birth control
 print("Question 10")
 doc_talk = input("Do you think you can easily talk to your doctor about birth control?\nPlease enter yes or no.")
-if doc_talk in ["Yes", "YES", "y", "Y", "yes"]:
+if doc_talk in YES_OPTIONS:
     print("You indicated you CAN easily talk to your doctor about birth control.")
-elif doc_talk in ["No", "NO", "n", "N", "no"]:
+elif doc_talk in NO_OPTIONS:
     print("You indicated you CANNOT easily talk to your doctor about birth control.")
 else:
     print("Sorry! Invalid entry! Please try again")
@@ -120,9 +127,9 @@ else:
 # probes for hormonal contraception usage for better employment
 print("Question 11")
 contraception = input("Have you ever used hormonal contraception for better employability at work?\nPlease enter yes or no.")
-if contraception in ["Yes", "YES", "y", "Y", "yes"]:
+if contraception in YES_OPTIONS:
     print("You indicated you HAVE used hormonal contraception for better employability at work.")
-elif contraception in ["No", "NO", "n", "N", "no"]:
+elif contraception in NO_OPTIONS:
     print("You indicated you HAVE NOT used hormonal contraception for better employability at work.")
 else:
     print("Sorry! Invalid entry! Please try again")
@@ -130,9 +137,9 @@ else:
 print("Question 12")
 print("With this research we want to help people with a female resproductive system to make informed choices about birth control.")
 volunteer = input("Would you like to help us with this and share more about your experiences?\nPlease enter yes or no:")
-if volunteer in ["Yes", "YES", "y", "Y", "yes"]:
+if volunteer in YES_OPTIONS:
     phone_number = input("Great! Someone will be in contact with you soon.")
-elif volunteer in ["No", "NO", "n", "N", "no"]:
+elif volunteer in NO_OPTIONS:
     print("Thank you anyway. Please feel free to contact us if you change your mind.")
 else:
     print("Sorry! Invalid entry! Please try again")
