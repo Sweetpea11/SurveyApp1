@@ -55,9 +55,9 @@ while True:
 # This block tests for US citizenship
 print("Question 4")
 us_Resident = input("Are you a resident of the United States?\n[Please enter Yes or No]: ")
-if us_Resident in ["Yes", "YES", "y", "Y", "yes"]:
+if us_Resident in YES_OPTIONS:
     print("Great! You are a United States resident and qualified to take this survey.")
-elif us_Resident in ["No", "NO", "n", "N", "no"]:
+elif us_Resident in NO_OPTIONS:
     sys.exit("Sorry! This survey is only for United States residents. Thanks for trying.")
 else:
     print("Sorry! Invalid entry! Please try again")
@@ -65,9 +65,9 @@ else:
 # probes for birth control usage
 print("Question 5")
 birth_control = input("Have you every used birth control?\nPlease enter yes or no: ")
-if birth_control in ["Yes", "YES", "y", "Y", "yes"]:
+if birth_control in YES_OPTIONS:
     print("You indicated that you HAVE used birth control.")
-elif birth_control in ["No", "NO", "n", "N", "no"]:
+elif birth_control in NO_OPTIONS:
     birth_control = 0
     print("You indicated that you HAVE NOT used birth control.")
 else:
@@ -77,9 +77,9 @@ else:
 print("Question 6")
 if birth_control == 0:
     considered_birth_control = input("Have you ever considered taking birth control?: ")
-    if considered_birth_control in ["Yes", "YES", "y", "Y", "yes"]:
+    if considered_birth_control in YES_OPTIONS:
         print("You indicated that you HAVE considered taking birth control.")
-    elif considered_birth_control in ["No", "NO", "n", "N", "no"]:
+    elif considered_birth_control in NO_OPTIONS:
         sys.exit("Sorry! This survey is only for women who have taken or considered taking birth control.")
 else:
     print("Sorry! Invalid entry! Please try again")
